@@ -20,18 +20,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
   const overlay = document.querySelector(".overlay");
   const close = document.querySelector(".nav_close");
+  const cart = document.querySelector(".header-body_right-cart");
 
   burger.addEventListener("click", () => {
     overlay.classList.add("active");
     navList.classList.toggle("mobile-menu");
     burger.style.display = "none";
     close.style.display = "block";
-
-    if ((burger.style.display = "none")) {
-      const cart = document.querySelector(".header-body_right-cart");
-      cart.style.display = "none";
-    } else {
-    }
+    cart.style.display = "none";
   });
 
   close.addEventListener("click", () => {
@@ -39,5 +35,17 @@ window.addEventListener("DOMContentLoaded", () => {
     navList.classList.remove("mobile-menu");
     burger.style.display = "flex";
     close.style.display = "none";
+    cart.style.display = "flex";
+  });
+
+  const modalOverlay = document.querySelector(".modal-overlay");
+  const modal = document.querySelector(".modal");
+  const btnOpenModal = document.querySelectorAll(".btn");
+
+  btnOpenModal.forEach((el) => {
+    el.addEventListener("click", () => {
+      modalOverlay.classList.add("active");
+      modal.classList.add("active-modal");
+    });
   });
 });

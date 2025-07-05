@@ -1,40 +1,19 @@
 .header {
+  padding: 16px 0 10px 0;
   z-index: 1000;
   position: relative;
   background-color: $color-white;
   width: 100%;
-
-  &_container {
-    max-width: 1248px;
-    margin: 0 auto;
-    padding-top: 16px;
-
-    @media (max-width: 961px) {
-      max-width: 928px;
-      padding: 10px;
-    }
-    @media (max-width: 380px) {
-      max-width: 343px;
-    }
-  }
 }
 .header-body {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &_left {
-  }
-
-  &_left-img {
-  }
-
-  &_center {
-  }
-
   &_right {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 23px;
   }
 
@@ -58,26 +37,6 @@
   }
 
   &_right-btn {
-    background-color: $color-orange;
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: clamp(0.8125rem, 0.7655rem + 0.2151vw, 0.9375rem);
-    font-family: $font-inter;
-    font-weight: 600;
-    letter-spacing: 0.5%;
-    color: $color-white;
-    cursor: pointer;
-    transition: all 0.5s;
-    white-space: nowrap;
-
-    &:hover {
-      background-color: $color-yellow;
-    }
-
-    &:active {
-      background-color: $color-darkOrange;
-    }
-
     @media (max-width: 600px) {
       display: none;
     }
@@ -124,7 +83,12 @@
     }
   }
 
-  &_item {
+  &_item-btn {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    @media (min-width: 600px) {
+      display: none;
+    }
   }
 
   &_link {
@@ -144,6 +108,7 @@
 
   &_close {
     display: none;
+    transition: all 1s;
 
     @media (max-width: 961px) {
       width: 12px;
@@ -217,25 +182,18 @@
   background-color: $color-white;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s;
-  z-index: 999;
-}
-
 .overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
 .mobile-menu {
-  transform: translateY(30%);
+  transform: translateY(37%);
   opacity: 1;
+}
+
+@media (max-width: 601px) {
+  .mobile-menu {
+    transform: translateY(22%);
+  }
 }
