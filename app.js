@@ -41,11 +41,31 @@ window.addEventListener("DOMContentLoaded", () => {
   const modalOverlay = document.querySelector(".modal-overlay");
   const modal = document.querySelector(".modal");
   const btnOpenModal = document.querySelectorAll(".btn");
+  const modalBtn = document.querySelector(".modal_btn");
+  const closeModal = document.querySelector(".modal_close");
 
   btnOpenModal.forEach((el) => {
     el.addEventListener("click", () => {
       modalOverlay.classList.add("active");
       modal.classList.add("active-modal");
     });
+  });
+
+  modalBtn.addEventListener("click", () => {
+    modalOverlay.classList.remove("active");
+    modal.classList.remove("active-modal");
+  });
+
+  closeModal.addEventListener("click", () => {
+    modalOverlay.classList.remove("active");
+    modal.classList.remove("active-modal");
+  });
+
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      console.log(e.target);
+      modalOverlay.classList.remove("active");
+      modal.classList.remove("active-modal");
+    }
   });
 });

@@ -63,7 +63,35 @@
     </header>
     <div class="overlay bg-overlay"></div>
     <div class="modal-overlay bg-overlay">
-      <div class="modal">ghgghgh</div>
+      <div class="modal">
+        <div class="modal_body">
+          <img src="images/icons/close.svg" alt="close" class="modal_close" />
+          <label class="modal_label" for="name"
+            >Имя <span class="star">*</span></label
+          >
+          <input
+            name="name"
+            type="text"
+            class="modal_input"
+            placeholder="Введите ваше имя"
+          />
+          <label class="modal_label" for="tel"
+            >Телефон <span class="star">*</span></label
+          >
+          <input
+            name="tel"
+            type="tel"
+            class="modal_input"
+            placeholder=" +7 000 000 00 00 "
+          />
+          <div class="modal_btn btn btn-orange">Отправить</div>
+          <div class="modal_info">
+            Нажимая кнопку “Отправить”, вы соглашаетесь с
+            <span class="text-modal">политикой конфиденциальности</span> и
+            <span class="text-modal">договором оферты</span>
+          </div>
+        </div>
+      </div>
     </div>
     <section class="top">
       <div class="container">
