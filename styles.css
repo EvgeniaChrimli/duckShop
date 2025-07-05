@@ -128,7 +128,7 @@ h6 {
 }
 
 .cart-img {
-  background-image: url(/images/icons/cart-initial.svg);
+  background-image: url("https://evgeniachrimli.github.io/duckShop/images/icons/cart-hover.svg");
   width: 16px;
   height: 16px;
   background-size: contain;
