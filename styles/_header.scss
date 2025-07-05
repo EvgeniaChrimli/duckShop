@@ -1,10 +1,28 @@
 .header {
+  z-index: 1000;
+  position: relative;
+  background-color: $color-white;
+  width: 100%;
+
   &_container {
     max-width: 1248px;
     margin: 0 auto;
+    padding-top: 16px;
+
+    @media (max-width: 961px) {
+      max-width: 928px;
+      padding: 10px;
+    }
+    @media (max-width: 380px) {
+      max-width: 343px;
+    }
   }
 }
 .header-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   &_left {
   }
 
@@ -15,23 +33,209 @@
   }
 
   &_right {
+    display: flex;
+    justify-content: center;
+    gap: 23px;
   }
 
   &_right-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    border-radius: 8px;
+
+    &:hover {
+      border: 1px solid $color-blue;
+    }
+
+    &:active {
+      border: 1px solid $color-darkBlue;
+    }
   }
 
   &_right-btn {
+    background-color: $color-orange;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: clamp(0.8125rem, 0.7655rem + 0.2151vw, 0.9375rem);
+    font-family: $font-inter;
+    font-weight: 600;
+    letter-spacing: 0.5%;
+    color: $color-white;
+    cursor: pointer;
+    transition: all 0.5s;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: $color-yellow;
+    }
+
+    &:active {
+      background-color: $color-darkOrange;
+    }
+
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
+}
+
+.cart-img {
+  background-image: url(../images/icons/cart-initial.svg);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-image 0.3s ease;
+  cursor: pointer;
+}
+
+.cart-img:hover {
+  background-image: url(../images/icons/cart-hover.svg);
+}
+
+.cart-img:active {
+  background-image: url(../images/icons/cart-press.svg);
 }
 .nav {
   &_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 0;
+    position: relative;
+
+    @media (max-width: 961px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-150%);
+      transition: all 1s ease-in;
+      flex-direction: column;
+      width: 100%;
+      background-color: $color-white;
+      opacity: 0;
+    }
   }
 
   &_item {
   }
 
   &_link {
+    font-family: $font-inter;
+    font-weight: 500;
+    letter-spacing: 0.5%;
+    color: $text-light;
+    font-size: clamp(0.8125rem, 0.7655rem + 0.2151vw, 0.9375rem);
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s;
+
+    &:hover {
+      color: #2581eb;
+    }
+  }
+
+  &_close {
+    display: none;
+
+    @media (max-width: 961px) {
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+    }
   }
 }
-.catalog-img {
+.catalog {
+  margin-left: 8px;
+  text-align: center;
+}
+
+@media (max-width: 961px) {
+  .catalog {
+    display: none;
+  }
+}
+
+.active-nav {
+  position: relative;
+  display: inline-block;
+  transition: all 0.5s;
+}
+.active-nav::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 28px;
+  width: 100%;
+  left: 0;
+  height: 2px;
+  background-color: $color-blue;
+}
+
+.active-link {
+  color: $color-blue;
+}
+
+.burger {
+  display: none;
+  @media (max-width: 961px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 11px;
+    border: 1px solid $color-yellow;
+    border-radius: 8px;
+    transition: all 0.5s;
+    z-index: 1000;
+  }
+}
+.burger:hover {
+  background-color: $color-yellow;
+}
+
+.burger:active {
+  background-color: $color-darkOrange;
+}
+
+.burger div {
+  width: 13px;
+  height: 0.5px;
+  background-color: $text-dark;
+  transition: all 0.5s;
+}
+
+.burger:active div {
+  background-color: $color-white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  z-index: 999;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu {
+  transform: translateY(30%);
+  opacity: 1;
 }
